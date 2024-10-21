@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /q
 
-Sitemap: https://sc4r.net/sitemap-index.xml
+Sitemap: https://www.sca.run/sitemap-index.xml
