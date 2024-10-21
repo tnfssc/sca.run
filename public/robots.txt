@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /q
 
-Sitemap: https://blog.sharath.uk/sitemap-index.xml
+Sitemap: https://sc4r.net/sitemap-index.xml

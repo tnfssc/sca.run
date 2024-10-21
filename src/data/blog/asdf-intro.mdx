@@ -23,13 +23,13 @@ For me, it was with NodeJS. The frontend uses Node 18. The backend uses Node 16.
 
 I had to use Docker to run both of them at the same time. But sometimes, you want get things done quicker. Sometimes you don't want to use the cumbersome Docker development environment. Even if you do set it all up in Docker, you still have install stuff like `build-essential`, `cmake`, `git` etc. You will lose your favorite [pretty terminal (click to learn)](https://ghost.sharath.uk/make-a-pretty-terminal-3/). You also lose your local files to quickly copy paste. This is a hassle.
 
-I learnt about [`nvm` (Node Version Manager)](https://nvm.sh/?ref=ghost.sharath.uk). It's a tool to configure different NodeJS environment versions to different projects. You can choose which NodeJS version to run the project on.
+I learnt about [`nvm` (Node Version Manager)](https://nvm.sh/?ref=sc4r.net). It's a tool to configure different NodeJS environment versions to different projects. You can choose which NodeJS version to run the project on.
 
 I started using it and loved it (for now). It was awesome and everything was working well. I completed my projects and went to sleep, not knowing that I would be dealing with `php` some day.
 
 ### 🤮 The ~NEW~ Problem.
 
-PHP hit my life. Now I have to deal with the same problem as NodeJS. Thing like `nvm` exist for PHP too. I could use something like [`phpenv`](https://github.com/phpenv/phpenv?ref=ghost.sharath.uk). But then I realised, yesterday it was NodeJS. Today it is PHP. Tomorrow it will be Go. Then it's gonna be Rust. This is a problem. Installing `phpenv` was not a solution, it was a bandaid. Docker is the solution, but it's too cumbersome.
+PHP hit my life. Now I have to deal with the same problem as NodeJS. Thing like `nvm` exist for PHP too. I could use something like [`phpenv`](https://github.com/phpenv/phpenv?ref=sc4r.net). But then I realised, yesterday it was NodeJS. Today it is PHP. Tomorrow it will be Go. Then it's gonna be Rust. This is a problem. Installing `phpenv` was not a solution, it was a bandaid. Docker is the solution, but it's too cumbersome.
 
 I need something that does more than just version managing a tool but not something that version manages my entire environment. I needed something like `nvm`, which I loved to use, but for every tool/language I am going to use in the future.
 
@@ -39,13 +39,13 @@ And then I found (drumrolls)......... nothing. So I just kept using Docker.
 
 I was just scrolling through GitHub's _Explore_ page (as I always do every night before going to bed). I saw the title `asdf-vm/asdf` and didn't pay much attention. I scrolled right past it.
 
-The next day, I was suggested the [asdfmovie playlist](https://www.youtube.com/watch?v=IYnsfV5N2n8&list=PL6HF94r1ogByYa2xFAXIE_1Pw-K0AU_Vd&index=1&ref=ghost.sharath.uk) on YouTube. I rewatched the whole playlist and enjoyed feeling nostalgic.
+The next day, I was suggested the [asdfmovie playlist](https://www.youtube.com/watch?v=IYnsfV5N2n8&list=PL6HF94r1ogByYa2xFAXIE_1Pw-K0AU_Vd&index=1&ref=sc4r.net) on YouTube. I rewatched the whole playlist and enjoyed feeling nostalgic.
 
 That night, I was scrolling throught GitHub's Explore page again. I saw `asdf-vm/asdf` again. This time, I clicked. And little did I know, it was gonna change my life.
 
 ### 😮 The Solution.
 
-[`asdf`](https://asdf-vm.com/?ref=ghost.sharath.uk) is the same as `nvm`, but for many toolchains. It has support for NodeJS, PHP, Python, Go, Rust etc., it's even got support for `kubectl`, `minikube` for all the DevOps guys out there.
+[`asdf`](https://asdf-vm.com/?ref=sc4r.net) is the same as `nvm`, but for many toolchains. It has support for NodeJS, PHP, Python, Go, Rust etc., it's even got support for `kubectl`, `minikube` for all the DevOps guys out there.
 
 ![asdf-vm.com](https://cdn.sharath.uk/20246-tlzpd.png)
 
@@ -54,7 +54,7 @@ That night, I was scrolling throught GitHub's Explore page again. I saw `asdf-vm
 ### 😉 Prerequisites
 
 - Linux or macOS. Windows users can jump off a cliff 🤓👍 (not financial advice)
-- Install `curl` and `git`. `sudo apt install curl git` on Debian. `brew install coreutils curl git` on macOS. Other OSes refer the [official docs](https://asdf-vm.com/guide/getting-started.html?ref=ghost.sharath.uk#_1-install-dependencies).
+- Install `curl` and `git`. `sudo apt install curl git` on Debian. `brew install coreutils curl git` on macOS. Other OSes refer the [official docs](https://asdf-vm.com/guide/getting-started.html?ref=sc4r.net#_1-install-dependencies).
 
 ### 🔥 Installation
 
@@ -120,7 +120,7 @@ echo -e '\nlegacy_version_file = yes' >> ~/.asdfrc
 
 `nushell` and `elvish` users
 
-Please follow [offical documentation](https://asdf-vm.com/guide/getting-started.html?ref=ghost.sharath.uk#_3-install-asdf)
+Please follow [offical documentation](https://asdf-vm.com/guide/getting-started.html?ref=sc4r.net#_3-install-asdf)
 
 #### Restart your terminal
 
@@ -142,7 +142,7 @@ asdf plugin list all
 
 ![asdf plugin list all](https://cdn.sharath.uk/20246-mpqdz.png)
 
-You can also look for plugins over [here](https://github.com/asdf-vm/asdf-plugins/tree/master/plugins?ref=ghost.sharath.uk)
+You can also look for plugins over [here](https://github.com/asdf-vm/asdf-plugins/tree/master/plugins?ref=sc4r.net)
 
 ---
 

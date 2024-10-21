@@ -1,6 +1,6 @@
-# [sharath.uk](https://sharath.uk)
+# [sc4r.net](https://sc4r.net)
 
-This repo has all the code for my site [sharath.uk](https://blog.sharath.uk).
+This repo has all the code for my site [sc4r.net](https://sc4r.net).
 The entire website was made using Astro.
 
 ![Astro](https://img.shields.io/badge/Astro-5-c93679?style=for-the-badge&logo=astro)

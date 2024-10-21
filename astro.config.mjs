@@ -12,7 +12,7 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 // https://astro.build/config
 export default defineConfig({
   output: "static",
-  site: process.env.BASE_URL ?? "https://v6.sharath.uk",
+  site: process.env.BASE_URL ?? "https://sc4r.net",
   image: { domains: ["cdn.sharath.uk"] },
   adapter: cloudflare({ imageService: "compile" }),
   vite: { plugins: [Icons({ compiler: "astro" })] },
@@ -25,9 +25,9 @@ export default defineConfig({
   env: {
     validateSecrets: true,
     schema: {
-      SITE_TITLE: envField.string({ access: "public", context: "client", default: "sharath.uk" }),
-      SITE_DESCRIPTION: envField.string({ access: "public", context: "client", default: "sharath's website" }),
-      BASE_URL: envField.string({ access: "public", context: "client", default: "https://v6.sharath.uk" }),
+      SITE_TITLE: envField.string({ access: "public", context: "client", default: "sc4r.net" }),
+      SITE_DESCRIPTION: envField.string({ access: "public", context: "client", default: "sc4r's website" }),
+      BASE_URL: envField.string({ access: "public", context: "client", default: "https://sc4r.net" }),
     },
   },
 });
