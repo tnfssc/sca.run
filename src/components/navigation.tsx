@@ -14,8 +14,8 @@ const navigationItems = [
   },
   {
     name: "About",
-    href: "/about",
     icon: UserIcon,
+    href: "//sharath.uk",
   },
 ] as const;
 
@@ -23,9 +23,9 @@ export function Navigation(): React.JSX.Element {
   const theme = useTheme();
 
   return (
-    <div className="absolute bottom-4 z-10 mx-auto w-full">
+    <div className="pointer-events-none absolute bottom-4 z-10 mx-auto w-full">
       <TooltipProvider>
-        <Dock distance={60} direction="middle">
+        <Dock distance={60} direction="middle" className="pointer-events-auto">
           {navigationItems.map((item) => (
             <DockIcon key={item.href} className="cursor-default p-1.5">
               <Tooltip>

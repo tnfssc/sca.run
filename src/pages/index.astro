@@ -1,39 +1,14 @@
 ---
-import { cn } from "@/lib/utils";
 import Base from "@/layouts/Base.astro";
-import RandomId from "@/components/random-id.astro";
-import { SparklesText } from "@/components/ui/sparkles-text";
-import { AnimatedGridPattern } from "@/components/ui/animated-grid-background";
 ---
 
-<Base title="www.sca.run">
+<Base title="sharath's portfolio">
   <div class="flex min-h-screen w-full flex-col items-center justify-center bg-dot-black/20 dark:bg-dot-white/20">
-    <div
-      class="pointer-events-none absolute inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-    >
-    </div>
-    <div
-      class="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg border bg-background p-20 md:shadow-xl"
-    >
-      <div class="z-10 flex flex-col items-center text-center">
-        <SparklesText client:load text="sca.run" sparklesCount={5} />
-        <span class="font-bold text-muted-foreground">Coming soon</span>
-        <span class="mt-2 text-sm text-muted-foreground">
-          <RandomId server:defer>
-            <div slot="fallback">loading</div>
-          </RandomId>
-        </span>
-      </div>
-      <AnimatedGridPattern
-        client:idle
-        duration={3}
-        numSquares={30}
-        maxOpacity={0.5}
-        className={cn(
-          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
-        )}
-      />
-    </div>
+    <iframe
+      title="Resume"
+      allow="clipboard-write"
+      class="h-[2787px] w-full max-w-screen-lg p-4"
+      src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Ftnfssc%2Ftnfssc%2Fblob%2Fmain%2FRESUME.md&style=a11y-dark&type=markdown&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&fetchFromJsDelivr=on"
+    ></iframe>
   </div>
 </Base>
