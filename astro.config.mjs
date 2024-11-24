@@ -13,7 +13,7 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 export default defineConfig({
   output: "server",
   site: process.env.BASE_URL ?? "https://www.sca.run",
-  image: { domains: ["cdn.sharath.uk"] },
+  image: { domains: ["cdn.sharath.uk", "img.shields.io"] },
   adapter: cloudflare({ imageService: "compile" }),
   vite: { plugins: [Icons({ compiler: "astro" })] },
   integrations: [
