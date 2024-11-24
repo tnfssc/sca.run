@@ -94,3 +94,13 @@
     @apply mx-0.5 mb-1 inline h-5 w-5;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
