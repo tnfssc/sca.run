@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - v6
+      - develop
 
 jobs:
   lint:
