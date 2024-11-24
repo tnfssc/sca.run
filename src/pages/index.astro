@@ -1,16 +1,27 @@
 ---
+import { marked } from "marked";
 import Base from "@/layouts/Base.astro";
+
+const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md")).then(
+  (r) => r.text(),
+);
+
+const file = marked(content);
 ---
 
 <Base title="sharath's resume">
-  <div class="flex flex-col items-center">
-    <div class="no-scrollbar min-h-screen w-full overflow-auto bg-dot-black/20 dark:bg-dot-white/20">
-      <iframe
-        title="Resume"
-        allow="clipboard-write"
-        class="h-[2787px] w-[1024px] border border-transparent p-2"
-        src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Ftnfssc%2Ftnfssc%2Fblob%2Fmain%2FRESUME.md&style=a11y-dark&type=markdown&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&fetchFromJsDelivr=on"
-      ></iframe>
-    </div>
+  <div class="m-4 flex flex-col items-center bg-dot-black/20 dark:bg-dot-white/20">
+    <article
+      set:html={file.toString()}
+      class:list={[
+        "prose dark:prose-invert mx-auto",
+        "prose-a:no-underline hover:prose-a:underline",
+        "prose-img:rounded-xl prose-img:my-1",
+        "prose-hr:my-2",
+        "prose-pre:mt-0 prose-pre:rounded-t-none",
+        "prose-code:whitespace-pre prose-code:rounded prose-code:border-[#24292e] prose-code:bg-[#24292e] prose-code:p-0.5 prose-code:text-white prose-code:before:hidden prose-code:after:hidden",
+        "hide-last-empty-line-in-code-block hide-quote-marks-inside-blockquote remove-first-line-space-infront-of-code-block defaults-for-unplugin-icons",
+      ]}
+    />
   </div>
 </Base>

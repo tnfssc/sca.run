@@ -113,6 +113,9 @@ dependencies:
   lucide-react:
     specifier: ^0.452.0
     version: 0.452.0(react@18.3.1)
+  marked:
+    specifier: ^15.0.2
+    version: 15.0.2
   mini-svg-data-uri:
     specifier: ^1.4.4
     version: 1.4.4
@@ -8318,6 +8321,13 @@ packages:
   /markdown-table@3.0.3:
     resolution:
       { integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw== }
+    dev: false
+
+  /marked@15.0.2:
+    resolution:
+      { integrity: sha512-85RUkoYKIVB21PbMKrnD6aCl9ws+XKEyhJNMbLn206NyD3jbBo7Ec7Wi4Jrsn4dV1a2ng7K/jfkmIN0DNoS41w== }
+    engines: { node: ">= 18" }
+    hasBin: true
     dev: false
 
   /mdast-util-definitions@6.0.0:

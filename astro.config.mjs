@@ -11,7 +11,7 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
+  output: "server",
   site: process.env.BASE_URL ?? "https://www.sca.run",
   image: { domains: ["cdn.sharath.uk"] },
   adapter: cloudflare({ imageService: "compile" }),
