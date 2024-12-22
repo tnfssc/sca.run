@@ -230,7 +230,7 @@ You can install a tool version using
 <CodeHead lang="sh" />
 
 ```sh
-asdf install <toolshortname> <version>
+asdf install [toolshortname] [version]
 
 # For example
 asdf install nodejs 18.12.1
@@ -241,7 +241,7 @@ You can switch to it on a global context by editing `~/.tool-versions` file. Or 
 <CodeHead lang="sh" />
 
 ```sh
-asdf global <toolshortname> <version>
+asdf global [toolshortname] [version]
 
 # For example
 asdf global nodejs 18.12.1
@@ -252,7 +252,7 @@ You list all the installed versions of a tool using
 <CodeHead lang="sh" />
 
 ```sh
-asdf list <toolname>
+asdf list [toolname]
 
 # For example
 asdf list nodejs
@@ -284,11 +284,14 @@ Remove the `asdf` lines from your `~/.config/fish/config.fish`, `.bashrc` or `.z
 
 Remove the entire `~/.asdf` directory. Remove the `~/.asdfrc` and `~/.tool-versions` file.
 
+Restart your terminal
+
 <CodeHead lang="sh" />
 
 ```sh
 rm -rf ~/.asdf
 rm ~/.asdfrc ~/.tool-versions
+exec $SHELL
 ```
 
 ## Here's my cat's collage btw
