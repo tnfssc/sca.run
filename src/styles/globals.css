@@ -76,6 +76,14 @@
   .defaults-for-unplugin-icons svg {
     @apply mx-0.5 mb-1 inline h-5 w-5;
   }
+
+  .hide-quote-marks-inside-blockquote blockquote ::before {
+    content: none !important;
+  }
+
+  .hide-quote-marks-inside-blockquote blockquote ::after {
+    content: none !important;
+  }
 }
 
 @layer utilities {

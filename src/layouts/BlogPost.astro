@@ -12,15 +12,16 @@ const { date, tags, title, heroImage, authorName, description, public: isPublic,
 ---
 
 <Base title={title} image={heroImage} description={description}>
-  <main class="mb-20 mt-4">
+  <main class="m-4 mb-20">
     <article
+      style="max-width: min(calc(100vw - 32px), 80ch);"
       class:list={[
         "prose dark:prose-invert mx-auto max-w-[80ch]",
         "prose-a:no-underline hover:prose-a:underline",
         "prose-img:rounded-xl",
         "prose-pre:mt-0 prose-pre:rounded-t-none",
         "prose-code:whitespace-pre prose-code:rounded prose-code:border-[#24292e] prose-code:bg-[#24292e] prose-code:p-0.5 prose-code:text-white prose-code:before:hidden prose-code:after:hidden",
-        "defaults-for-unplugin-icons",
+        "defaults-for-unplugin-icons hide-quote-marks-inside-blockquote",
       ]}
     >
       <div class="flex justify-end gap-4">
