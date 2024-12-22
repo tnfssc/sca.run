@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "@/lib/hooks/theme";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { buttonVariants } from "@/components/ui/button";
-import { SunIcon, HomeIcon, UserIcon, MoonIcon } from "lucide-react";
+import { SunIcon, HomeIcon, FileIcon, MoonIcon } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 
 const navigationItems = [
@@ -13,9 +13,9 @@ const navigationItems = [
     icon: HomeIcon,
   },
   {
-    name: "About",
-    icon: UserIcon,
-    href: "//sharath.uk",
+    name: "Blog",
+    href: "/blog",
+    icon: FileIcon,
   },
 ] as const;
 
