@@ -3,22 +3,25 @@ import { marked } from "marked";
 import Base from "@/layouts/Base.astro";
 
 const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md"))
+  .then((r) => {
+    if (r.ok) return r;
+    else throw new Error("Failed to fetch data");
+  })
   .then((r) => r.text())
   .catch((e) => {
     console.error(e);
-    return "# Cannot access GitHub to fetch the latest resume\n\nOpen it directly instead [https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md](https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md)";
+    return "## Cannot access GitHub to fetch the latest resume\n\nOpen it directly [https://github.com/tnfssc/tnfssc/blob/main/RESUME.md](https://github.com/tnfssc/tnfssc/blob/main/RESUME.md)";
   });
 
 const file = marked(content);
 ---
 
 <Base title="sharath's resume">
-  <div class="m-4 flex flex-col items-center bg-dot-black/20 dark:bg-dot-white/20">
+  <div class="m-4 flex min-h-[calc(100vh-32px)] flex-col items-center bg-dot-black/20 dark:bg-dot-white/20">
     <article
       set:html={file.toString()}
-      style="max-width: min(calc(100vw - 32px), 80ch);"
       class:list={[
-        "mb-20 mt-4 max-w-[80ch]",
+        "mb-20 mt-4 max-w-[min(calc(100vw-32px),80ch)]",
         "prose dark:prose-invert mx-auto",
         "prose-a:no-underline hover:prose-a:underline prose-a:inline prose-img:inline",
         "prose-img:rounded-xl prose-img:my-1",
@@ -26,6 +29,7 @@ const file = marked(content);
         "prose-pre:mt-0 prose-pre:rounded-t-none",
         "prose-code:whitespace-pre prose-code:rounded prose-code:border-[#24292e] prose-code:bg-[#24292e] prose-code:p-0.5 prose-code:text-white prose-code:before:hidden prose-code:after:hidden",
         "defaults-for-unplugin-icons",
+        "[&_summary]:cursor-pointer",
       ]}
     />
   </div>
