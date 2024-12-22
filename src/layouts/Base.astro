@@ -55,8 +55,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <body>
     <ScrollArea client:load className="flex h-screen w-full flex-col items-center justify-center overflow-auto">
       <slot />
-      <Navigation client:only="react" transition:persist="navigation" />
-      <Toaster client:only="react" transition:persist="toaster" />
+      <Navigation client:load transition:persist="navigation" />
+      <Toaster client:load transition:persist="toaster" />
     </ScrollArea>
   </body>
 </html>
