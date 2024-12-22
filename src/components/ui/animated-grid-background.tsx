@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useId, useRef, useState, useEffect, useCallback } from "react";
 
 interface AnimatedGridPatternProps {

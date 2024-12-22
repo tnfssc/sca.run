@@ -73,23 +73,6 @@
       "calt" 1;
   }
 
-  /* mdx */
-  .hide-last-empty-line-in-code-block .astro-code code .line:last-of-type {
-    display: none !important;
-  }
-
-  .remove-first-line-space-infront-of-code-block .astro-code code .line:first-of-type {
-    margin-left: -3px !important;
-  }
-
-  .hide-quote-marks-inside-blockquote blockquote ::before {
-    content: none !important;
-  }
-
-  .hide-quote-marks-inside-blockquote blockquote ::after {
-    content: none !important;
-  }
-
   .defaults-for-unplugin-icons svg {
     @apply mx-0.5 mb-1 inline h-5 w-5;
   }

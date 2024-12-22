@@ -5,7 +5,7 @@ import type { PropsWithChildren } from "react";
 import { cn } from "@/lib/utils";
 import React, { useRef, useCallback } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion, useSpring, useTransform, useMotionValue } from "framer-motion";
+import { motion, useSpring, useTransform, useMotionValue } from "motion/react";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
   distance?: number;
@@ -37,8 +37,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const renderChildren = useCallback(() => {
       return React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === DockIcon) {
-          return React.cloneElement(child, {
-            ...child.props,
+          return React.cloneElement(child as React.JSX.Element, {
+            ...(child.props as object),
             mouseX,
             distance,
             magnification,

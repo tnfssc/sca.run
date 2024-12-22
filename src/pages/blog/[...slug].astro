@@ -3,6 +3,8 @@ import { components } from "@/components/mdx";
 import BlogPost from "@/layouts/BlogPost.astro";
 import { render, getCollection, type CollectionEntry } from "astro:content";
 
+export const prerender = true;
+
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticPaths() {
   const posts = await getCollection("blog");

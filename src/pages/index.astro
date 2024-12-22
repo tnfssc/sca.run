@@ -2,9 +2,12 @@
 import { marked } from "marked";
 import Base from "@/layouts/Base.astro";
 
-const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md")).then(
-  (r) => r.text(),
-);
+const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md"))
+  .then((r) => r.text())
+  .catch((e) => {
+    console.error(e);
+    return "# Cannot access GitHub to fetch the latest resume\n\nOpen it directly instead [https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md](https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md)";
+  });
 
 const file = marked(content);
 ---

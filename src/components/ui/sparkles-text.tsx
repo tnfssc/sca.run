@@ -4,7 +4,7 @@
 import type { ReactElement, CSSProperties } from "react";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useId, useState, useEffect } from "react";
 
 interface Sparkle {

@@ -44,18 +44,15 @@ export default tseslint.config(
       "func-name-matching": "error",
       "func-names": ["error", "always"],
       // sonarjs
-      "sonarjs/new-cap": "warn",
       "sonarjs/void-use": "off",
       "sonarjs/todo-tag": "warn",
       "sonarjs/no-redeclare": "off",
       "sonarjs/unused-import": "off",
       "sonarjs/pseudo-random": "warn",
-      "sonarjs/no-array-index-key": "warn",
       "sonarjs/no-misused-promises": "off",
       "sonarjs/no-nested-functions": "off",
       "sonarjs/sonar-no-unused-vars": "off",
       "sonarjs/cognitive-complexity": "warn",
-      "sonarjs/jsx-no-useless-fragment": "warn",
       // perfectionist
       "perfectionist/sort-maps": "warn",
       "perfectionist/sort-sets": "warn",
