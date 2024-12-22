@@ -2,7 +2,7 @@
 import "@/styles/globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ClientRouter } from "astro:transitions";
-// import { Navigation } from "@/components/navigation";
+import { Navigation } from "@/components/navigation";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SITE_TITLE, SITE_DESCRIPTION } from "astro:env/client";
 
@@ -55,7 +55,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <body>
     <ScrollArea client:load className="flex h-screen w-full flex-col items-center justify-center overflow-auto">
       <slot />
-      <!-- <Navigation client:only="react" transition:persist="navigation" /> -->
+      <Navigation client:only="react" transition:persist="navigation" />
       <Toaster client:only="react" transition:persist="toaster" />
     </ScrollArea>
   </body>

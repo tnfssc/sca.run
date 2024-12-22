@@ -8,14 +8,14 @@ import MaterialSymbolsLockIcon from "~icons/material-symbols/lock";
 import Base from "./Base.astro";
 
 type Props = CollectionEntry<"blog">["data"];
-const { date, tags, title, heroImage, description, public: isPublic } = Astro.props;
+const { date, tags, title, heroImage, authorName, description, public: isPublic, authorProfileUrl } = Astro.props;
 ---
 
 <Base title={title} image={heroImage} description={description}>
-  <main>
+  <main class="mb-20 mt-4">
     <article
       class:list={[
-        "prose dark:prose-invert mx-auto",
+        "prose dark:prose-invert mx-auto max-w-[80ch]",
         "prose-a:no-underline hover:prose-a:underline",
         "prose-img:rounded-xl",
         "prose-pre:mt-0 prose-pre:rounded-t-none",
@@ -24,6 +24,8 @@ const { date, tags, title, heroImage, description, public: isPublic } = Astro.pr
       ]}
     >
       <div class="flex justify-end gap-4">
+        <span>Written by <a target="_blank" href={authorProfileUrl} rel="noopener noreferrer">{authorName}</a></span>
+        <span class="flex-1"></span>
         {isPublic && <FormattedDate date={date} />}
         {
           !isPublic && (
