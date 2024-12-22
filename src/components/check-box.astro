@@ -1,0 +1,20 @@
+---
+import MaterialSymbolsCheckBox from "~icons/material-symbols/check-box";
+import MaterialSymbolsCheckBoxOutlineBlank from "~icons/material-symbols/check-box-outline-blank";
+
+interface Props {
+  checked?: boolean;
+}
+
+const { checked } = Astro.props;
+---
+
+<span>
+  {
+    checked ? (
+      <MaterialSymbolsCheckBox class="!mb-0.5" aria-hidden="true" />
+    ) : (
+      <MaterialSymbolsCheckBoxOutlineBlank class="!mb-0.5" aria-hidden="true" />
+    )
+  }
+</span>

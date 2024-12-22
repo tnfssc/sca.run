@@ -1,0 +1,331 @@
+---
+title: "VSCodium, Flatpak, Wayland and Linux. How I got it all working."
+description: "It was a wild ride. Weird bugs, crazy workarounds and a lot of trial and error. Here's how I got it all working."
+date: "Jul 4 2024"
+heroImage: "https://cdn.sharath.uk/20247-c8uoi.png"
+tags: ["flatpak", "vscode", "codium", "linux", "ubuntu", "howto", "editor", "dev", "sync", "linux", "wayland", "gpu"]
+public: true
+---
+
+export * from "@/components/mdx";
+
+import Checkbox from "@/components/check-box.astro";
+import CodeHead from "@/components/code-head.astro";
+
+import BiGpuCardIcon from "~icons/bi/gpu-card";
+import CodiconExtensionsIcon from "~icons/codicon/extensions";
+import CodiconSyncIcon from "~icons/codicon/sync";
+import CodiconTerminalBashIcon from "~icons/codicon/terminal-bash";
+import DeviconVscodiumIcon from "~icons/devicon/vscodium";
+import LogosVisualStudioCodeIcon from "~icons/logos/visual-studio-code";
+import MaterialSymbolsChessIcon from "~icons/material-symbols/chess";
+import OouiLinkSecureIcon from "~icons/ooui/link-secure";
+import SimpleIconsFlatpakIcon from "~icons/simple-icons/flatpak";
+import SimpleIconsWaylandIcon from "~icons/simple-icons/wayland";
+import VscodeIconsFileTypeHyprIcon from "~icons/vscode-icons/file-type-hypr";
+import VscodeIconsFileTypeXorgIcon from "~icons/vscode-icons/file-type-xorg";
+
+> [Skip ahead of the backstory by clicking here](#final-chapter-perfection).
+
+## Terminology
+
+<LogosVisualStudioCodeIcon /> **Visual Studio Code** is a code editor from Microsoft. It's based on Electron. It's a
+desktop app built with NodeJS and Google Chrome (Chromium).
+
+<SimpleIconsFlatpakIcon color="white" /> **Flatpak** is a Linux app packaging format. Any app packaged as Flatpak can be
+run on any Linux distribution that supports Flatpak. Flatpaks are like Docker containers. They are isolated from the
+host system. You can give them permissions to access specific parts of your (host) system.
+
+<DeviconVscodiumIcon /> **VSCodium** is a community-driven, freely-licensed binary distribution of Visual Studio Code
+(VSCode). Basically, it's VSCode without the Microsoft or their extension marketplace.
+
+<SimpleIconsWaylandIcon color="yellow" /> **Wayland** is a display server protocol for Linux. It's a protocol that
+allows Linux to run on top of a graphical display server. It controls the windows, the cursor, the input devices and the
+screen.
+
+<VscodeIconsFileTypeXorgIcon /> **X11** also does the same thing as Wayland. It's much older, but still widely used.
+Touchpad controls are not supported.
+
+<VscodeIconsFileTypeHyprIcon /> **XWayland** is a way to run X11 only apps on Wayland systems.
+
+<OouiLinkSecureIcon color="darkred" /> **Secure Boot** is a "security" feature in UEFI. It prevents you from booting
+from an unsigned or modified operating system. Only signed and verified operating systems can boot.
+
+---
+
+## Chapter 1: My old laptop
+
+I have an old Acer Predator laptop. It's an Intel + Nvidia machine. I use it like a desktop. The battery is useless.
+I dual booted it with Windows 10 and Pop!\_OS (basically Ubuntu Linux). I use Windows for gaming and Pop!\_OS for coding.
+It was setup with X11 display server. It was simple. It worked well. All the apps worked fine. Everything was smooth and as expected.
+
+---
+
+## Chapter 2: My new laptop
+
+I got a new laptop a few months ago. It's a Zephyrus G14 with AMD + Nvidia. I wanted to use it like a laptop, unlike my old laptop. So keeping the battery sane was a must.
+After I was done playing with it, I wanted to dual boot it. I use Pop!\_OS, so I wanted to install it. But, I wanted to keep secure boot enabled.
+I couldn't use Pop!\_OS because it wasn't signed. I had to choose between Ubuntu and Fedora.
+
+I chose Fedora. I installed it on my laptop. All was good. It was using Wayland by default. Touchpad gestures were working fine.
+I installed EnvyControl to switch between integrated and discrete GPUs. I made integrated GPU the default.
+Installed all my browsers, synced all my accounts and spent almost a day configuring it. Everything was perfect except I was missing the last piece.
+
+---
+
+## Chapter 3: The VSCode drama
+
+The final piece was VSCode. Installed it using the `.rpm` package from the official website and opened it.
+It doesn't open. It's just a blank screen. I tried to open it from the terminal. It doesn't work. Same thing.
+
+![Broken VSCode](https://cdn.sharath.uk/20247-wk8hg.png)
+
+I searched through GitHub issues, Google, StackOverflow etc. I couldn't find a solution. I tried the Flatpak version, it works. But it doesn't have access to host's binaries.
+If I switch to Nvidia GPU, everything works. If I switch to Hybrid GPU, it works. But if I switch to Integrated GPU, it doesn't work.
+
+The next day I planned to install Ubuntu on the laptop. I didn't want to setup everything again, so I opened VSCode from the live boot. I switched to Integrated GPU and everything worked.
+So I installed Ubuntu on the laptop. I setup VSCode first. It doesn't open. Same issue as before. I tried many things to fix it. But nothing worked.
+
+I downloaded 5 other distros and tried it on all of them on live boot. None worked. I gave up and went back to Ubuntu. Suddenly, it worked.
+Everything was working fine. I was able to open VSCode. I was able to use it. It was a miracle. I don't know what happened. But it worked.
+
+I setup all my accounts, synced them, installed all my browsers. And after all of that, VSCode doesn't open. Again. Same issue. I left it for a day. I came back to it. It still doesn't work.
+
+I came back after sometime and VSCode was open. It was working. All good. No problems. I reopened it. It was still working. At this point, I don't know what is happening.
+After a few minutes of trial and error, I found that if I plug the laptop into a power source, it works. If it's on battery, VSCode fails to open.
+
+This broke my brain. I was stuck. I couldn't figure out what was happening. I searched all over the internet. No luck.
+
+---
+
+## Chapter 3.5: Break from Linux
+
+I gave up on Linux. Erased all the partitions and switched back to Windows and WSL. I stayed there for a month or so.
+Windows is horrible. Memory hog. CPU hog. Trash battery life. Touchpad gestures are terrible. I put up with so much of Microsoft's crap.
+
+---
+
+## Chapter 4: Retry Linux
+
+After a month, I decided to try Linux again. I installed Ubuntu. I added all my accounts, software, browsers and synced them. It was a breeze.
+I knew VSCode was still broken. I started learning Neovim. I used it for a week or so. It was fast and smooth. There was so much configuration and setup though.
+I understood Neovim wasn't for me. Not yet at least.
+
+At this time, I was also looking for a new browser to switch to. I wanted to give **Thorium** a try. I looked for it's Flatpak. It didn't exist.
+I added the PPA and installed it through `apt`. It doesn't open. It's the same as VSCode. If I plug in the laptop, it works. If I switch to battery, it doesn't work.
+Now with this knowledge, I tried Google Chrome, Ungoogled Chromium, Brave and Chromium. All of them exhibited the same behavior.
+
+Now I knew that the problem was never with VSCode, but it's upstream dependency, Chromium (and Electron).
+
+---
+
+## Chapter 5: It works <sub className='text-xs font-normal italic'>almost</sub>
+
+Equipped with this knowledge, I looked for a solution. I found a GitHub issue. It was a similar problem as mine. [#206510](https://github.com/microsoft/vscode/issues/206510#issuecomment-2070911552).
+I followed the command in this comment and it worked. I opened VSCode. It was working (almost). The suggested command had a few issues.
+
+<CodeHead lang="bash" />
+
+```bash
+code --disable-gpu --disable-software-rasterizer
+```
+
+I had to disable the GPU and software rasterizer. Which means, I cannot open images or SVGs in the editor. I get shown `WebGL2 is not supported` error.
+
+This was not great, but at least it was working. I was able to code without any issues. It wasn't slow or anything. It just wasn't perfect.
+
+---
+
+## Chapter 6: Flatpaks
+
+Few weeks went by, and not having WebGL2 in VSCode was bothering me. I already knew that Flatpak version works. So I decided to give it a try and solve any issues that might arise.
+
+At this time, I also decided that I want to use VSCodium instead of Visual Studio Code. It promised to be more open and free from Microsoft. I installed it.
+I had a bunch of issues with it. I needed to resolve them before I can completely switch to Flatpak VSCodium.
+
+---
+
+## Final Chapter: Perfection
+
+Here's the list of things I needed to resolve before I can completely switch to Flatpak VSCodium.
+
+<Checkbox /> All the extensions I use \
+<Checkbox /> Host binaries and toolchains \
+<Checkbox /> GPU acceleration \
+<Checkbox /> Gesture support (Wayland) \
+<Checkbox /> Settings sync \
+<Checkbox /> My terminal configuration
+
+### <CodiconExtensionsIcon /> Extensions
+
+Most of the extensions I use are available on the [open-vsx.org](https://open-vsx.org/) registry. But there were a couple of extensions that weren't available there.
+I had to get them from the official Microsoft Visual Studio Code Marketplace.
+
+I planned to download the extension manually and install it. Manually updating it when I felt like it. But this was a bad idea.
+I then discovered that it was possible to use Microsoft's marketplace instead of the open-vsx.org registry. [vscodium/docs/index.md](https://github.com/VSCodium/vscodium/blob/master/docs/index.md#how-to-use-a-different-extension-gallery).
+
+I just had to add the following variables to environment I launch VSCodium with.
+
+<CodeHead lang="env" />
+
+```sh
+VSCODE_GALLERY_SERVICE_URL='https://marketplace.visualstudio.com/_apis/public/gallery'
+VSCODE_GALLERY_ITEM_URL='https://marketplace.visualstudio.com/items'
+VSCODE_GALLERY_CACHE_URL='https://vscode.blob.core.windows.net/gallery/index'
+VSCODE_GALLERY_CONTROL_URL=''
+```
+
+I used Flatseal to configure these values.
+
+![Flatseal configuration](https://cdn.sharath.uk/20247-yt3ez.png)
+
+![VSCode extensions](https://cdn.sharath.uk/20247-sqpnt.png)
+
+Once I added the values, I got the extensions from the Microsoft marketplace on the extension tab.
+
+<Checkbox checked /> All the extensions I use
+
+### <CodiconTerminalBashIcon /> My terminal configuration
+
+I needed a way to figure out how to get my host binaries and toolchains accessible from VSCodium.
+I realized that if I can first get my ZSH configuration to work first, then my toolchains and binaries can be made to work.
+The [official documentation](https://github.com/flathub/com.vscodium.codium) says that I can use this command
+to execute a command in the host's environment.
+
+<CodeHead lang="sh" />
+
+```bash
+flatpak-spawn --host zsh
+# or
+host-spawn zsh
+```
+
+I ran into issues when using `flatpak-spawn` or `host-spawn`. Apparently, my ZSH configuration has some compatibility issues with `flatpak-spawn`.
+
+![Flatpak terminal](https://cdn.sharath.uk/20247-bc07i.png)
+
+I came across a GitHub issue that provided a solution.
+I had to use a [modified version](https://github.com/1player/host-spawn) of `host-spawn`. I downloaded it and moved it to `/app/bin`.
+
+<CodeHead lang="sh" />
+
+```bash
+wget https://github.com/1player/host-spawn/releases/download/v1.6.0/host-spawn-x86_64 -O /app/bin/host-spawn
+chmod +x /app/bin/host-spawn
+```
+
+I added the following to my `settings.json` file.
+
+<CodeHead lang="json" filename="settings.json" />
+
+```json
+{
+  // snip
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.profiles.linux": {
+    "zsh": {
+      "path": "/app/bin/host-spawn",
+      "args": ["zsh"]
+    }
+  }
+  // snip
+}
+```
+
+Now everything works fine.
+
+![Flatpak terminal](https://cdn.sharath.uk/20247-px33b.png)
+
+<Checkbox checked /> My terminal configuration
+
+### <MaterialSymbolsChessIcon / > Host binaries and toolchains
+
+I use [asdf-vm.com](/blog/asdf-intro/) to manage my toolchains. So all my tools are located in the
+`~/.asdf/` directory. I gave VSCodium Flatpak access to all the file system directories.
+
+![Flatseal configuration](https://cdn.sharath.uk/20247-cujw8.png)
+
+<Checkbox checked /> Host binaries and toolchains
+
+### <CodiconSyncIcon / > Settings sync
+
+I found this really awesome VSCodium extension called [Sync Settings](https://marketplace.visualstudio.com/items?itemName=zokugun.sync-settings).
+It basically syncs VSCodium settings into a GitHub repository. I just created a private repository, installed the extension and followed the instructions.
+
+Here's the configuration I used.
+
+<CodeHead lang="yaml" />
+
+```yaml
+repository:
+  type: git
+  url: git@github.com:your-username/codium-sync.git
+  branch: main
+```
+
+<CodeHead lang="json" filename="settings.json" />
+
+```json
+{
+  // snip
+  "syncSettings.crons": {
+    "download": "0 23 * * *",
+    "upload": "0 */2 * * *"
+  }
+  // snip
+}
+```
+
+<Checkbox checked /> Settings sync
+
+### <BiGpuCardIcon /> GPU acceleration
+
+The GPU acceleration should work out of the box. But for me it didn't. I had to enable it manually using Flatseal.
+I don't know why it has webcam access by default though.
+
+![Flatseal configuration](https://cdn.sharath.uk/20247-qlkkr.png)
+
+<Checkbox checked /> GPU acceleration
+
+### <SimpleIconsWaylandIcon /> Gesture support (Wayland)
+
+The editor is perfectly usable right now. But I wanted to get touchpad gestures working. I want to pinch to zoom on pngs and svgs.
+The Flatpak uses XWayland by default, so I need to enable Wayland support. Again, I can use Flatseal to do this.
+
+![Flatseal configuration](https://cdn.sharath.uk/20247-hl45o.png)
+
+However, this didn't work. I later figured out that I need to use the following command to enable Wayland support.
+
+<CodeHead lang="bash" />
+
+```bash
+flatpak run com.BraveSoftware.Brave --enable-features=VaapiVideoDecoder,UseOzonePlatform --ozone-platform=wayland --enable-gpu-rasterization
+```
+
+As I didn't want to enter this long command every time, I added them to the following file.
+
+<CodeHead lang="sh" filename="codium-flags.conf" />
+
+```yml
+# ~/.var/app/com.vscodium.codium-insiders/config/codium-flags.conf
+--enable-features=VaapiVideoDecoder,UseOzonePlatform
+--ozone-platform=wayland
+--enable-gpu-rasterization
+```
+
+This will make sure that when I run VSCodium, these flags are passed to it.
+I also added an alias to my `.zshrc` file so that I can open VSCodium with a single letter `c`.
+
+<CodeHead lang="sh" filename=".zshrc" />
+
+```sh
+c() { flatpak run com.vscodium.codium-insiders ${@:-.}; }
+```
+
+<Checkbox checked /> Gesture support (Wayland)
+
+## The end
+
+After countless hours of trial and error, I finally got VSCodium + Linux + Wayland + GPU acceleration working on my new laptop.
+
+![VSCodium + Linux + Wayland + GPU acceleration](https://cdn.sharath.uk/20247-dgwwq.png)

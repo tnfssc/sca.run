@@ -1,0 +1,112 @@
+---
+title: "I cancelled my Copilot subscription. You should too."
+description: "No. I am not saying you should not use Copilot. Rather you should not pay for it. Here's how I get the same benefits for free."
+date: "May 8 2024"
+heroImage: "https://cdn.sharath.uk/20246-ufs9f.png"
+tags: ["copilot", "continue", "free", "openai", "ai", "vscode", "autocomplete", "llm", "chatgpt"]
+public: true
+---
+
+export * from "@/components/mdx";
+
+import CodeHead from "@/components/code-head.astro";
+
+## ⭐️ [continue.dev](https://continue.dev/)
+
+[continue.dev](https://continue.dev/) is a free AI powered code generation and autocomplete extension/tool for VSCode. It is fully open source. We will use it in conjunction with "some" LLM backend.
+
+## ⭐️ LLM
+
+We need an LLM provider. You have options like [OpenAI](https://openai.com/), [Anthropic](https://www.anthropic.com/), [Gemini](https://gemini.google.com/app) etc.
+
+I like free stuff. So I'll use [groq](https://groq.com/).
+
+Just go to [https://console.groq.com/keys](https://console.groq.com/keys).
+
+![groq console](https://cdn.sharath.uk/20246-aq90b.png)
+
+Create a new API key.
+
+Your API key looks something like `gsk_aD...xT`.
+
+Keep this key safe. We will use it soon.
+
+## ⭐️ VSCode
+
+Open your VSCode and open `settings.json` file. You can do this by pressing `[CTRL/CMD + SHIFT + P]`, and entering `Preferences: Open User Settings (JSON)`.
+
+You will see a massive JSON file. You need to add this property into the JSON.
+
+<CodeHead lang="json" filename="settings.json" />
+
+```json
+{
+  /// snip
+  "remote.extensionKind": {
+    "continue.continue": ["workspace"]
+  }
+  /// snip
+}
+```
+
+Once you add it, you can save and close the JSON file.
+
+Now, install this extension. [https://marketplace.visualstudio.com/items?itemName=Continue.continue](https://marketplace.visualstudio.com/items?itemName=Continue.continue).
+
+![continue.dev](https://cdn.sharath.uk/20246-tvfz3.png)
+
+Switch to the `Pre-Release Version` (or above v0.9.127).
+
+Once installed, open the file at `~/.continue/config.json`. Delete all the file contents and replace it with the below JSON.
+
+<CodeHead lang="json" filename="settings.json" />
+
+````json
+{
+  "models": [
+    {
+      "title": "Groq",
+      "provider": "groq",
+      "model": "llama3-70b",
+      "apiKey": "[REDACTED]",
+      "apiBase": "https://api.groq.com/openai/v1",
+      "useLegacyCompletionsEndpoint": false,
+      "completionOptions": {}
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Groq",
+    "provider": "groq",
+    "model": "llama3-70b",
+    "apiKey": "[REDACTED]",
+    "apiBase": "https://api.groq.com/openai/v1",
+    "useLegacyCompletionsEndpoint": false,
+    "apiType": "openai",
+    "completionOptions": {
+      "stop": ["```"]
+    }
+  },
+  "tabAutocompleteOptions": {
+    "debounceDelay": 2000,
+    "prefixPercentage": 0.5,
+    "useSuffix": true,
+    "maxSuffixPercentage": 0.5,
+    "multilineCompletions": "always",
+    "maxPromptTokens": 500,
+    "template": "Fill in the blank to complete the code block. Your response should include only the code to replace [BLANK], without any backticks. Be careful around the starting of the response. It must not include anything from the previous text.\n\nExample:\nInput:\n```function fibonacci(n)[BLANK]\nfunction```\nOutput:\n``` {\n  if(n <= 2) {\n    if(n == 1) {\n      return 0;\n    } else {\n      return 1;\n    }\n  } else {\n    return fibonacci(n - 1) + fibonacci(n - 2);\n  }\n}\n```\n\n\nFill the blank below.\n\n```\n{{{prefix}}}[BLANK]{{{suffix}}}\n```",
+    "allowAnonymousTelemetry": false
+  }
+}
+````
+
+Replace the `[REDACTED]` parts with the API key that you attained from [groq](https://groq.com/).
+
+Once you did that, you are ready to go. Just open any code and start typing away.
+
+![continue extension](https://cdn.sharath.uk/20246-aazhb.png)
+
+## ⭐️ Conclusion
+
+You can now seal off that hole in you credit card.
+
+For advanced use cases, please refer to [continue.dev/docs](https://docs.continue.dev/reference/config?ref=blog.sharath.uk). You can customise a lot of things including the prompts and which models to use.

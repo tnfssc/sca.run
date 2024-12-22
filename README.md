@@ -13,9 +13,18 @@ The entire website was made using Astro.
 
 ## Instructions
 
-- You can start the dev server using the following command:
+- You can start the dev server using the following commands:
 
 ```sh
+# Install tools
+asdf install
+corepack enable
+asdf reshim
+
+# Install dependencies
+pnpm install
+
+# Start the dev server
 pnpm dev
 ```
 
