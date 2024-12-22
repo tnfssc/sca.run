@@ -17,19 +17,19 @@ const file = marked(content);
 ---
 
 <Base title="sharath's resume">
-  <div class="m-4 flex min-h-[calc(100vh-32px)] flex-col items-center bg-dot-black/20 dark:bg-dot-white/20">
+  <div class="m-4 flex min-h-[calc(100vh-32px)] flex-col items-center">
     <article
       set:html={file.toString()}
       class:list={[
         "mb-20 mt-4 max-w-[min(calc(100vw-32px),80ch)]",
         "prose dark:prose-invert mx-auto",
         "prose-a:no-underline hover:prose-a:underline prose-a:inline prose-img:inline",
-        "prose-img:rounded-xl prose-img:my-1",
         "prose-hr:my-2",
         "prose-pre:mt-0 prose-pre:rounded-t-none",
         "prose-code:whitespace-pre prose-code:rounded prose-code:border-[#24292e] prose-code:bg-[#24292e] prose-code:p-0.5 prose-code:text-white prose-code:before:hidden prose-code:after:hidden",
         "defaults-for-unplugin-icons hide-quote-marks-inside-blockquote",
         "[&_summary]:cursor-pointer",
+        "prose-img:my-1 prose-img:shadow-md prose-img:shadow-foreground/20 prose-img:rounded",
       ]}
     />
   </div>
