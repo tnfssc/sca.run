@@ -10,7 +10,7 @@ const posts = await getCollection("blog").then((allPosts) =>
 );
 ---
 
-<Base>
+<Base title="sharath's blog">
   <div class="m-4 mb-20 grid grid-cols-1 gap-8">
     {
       posts.map((post, i) => (
