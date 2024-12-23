@@ -17,11 +17,11 @@ const file = marked(content);
 ---
 
 <Base title="sharath's resume">
-  <div class="m-4 flex min-h-[calc(100vh-32px)] flex-col items-center">
+  <div class="flex flex-col items-center">
     <article
       set:html={file.toString()}
       class:list={[
-        "mb-20 mt-4 max-w-[min(calc(100vw-32px),80ch)]",
+        "m-4 max-w-[min(calc(100vw-32px),80ch)]",
         "prose dark:prose-invert mx-auto",
         "prose-a:no-underline hover:prose-a:underline prose-a:inline prose-img:inline",
         "prose-hr:my-2",

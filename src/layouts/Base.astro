@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ClientRouter } from "astro:transitions";
 import { Navigation } from "@/components/navigation";
-import { ScrollArea } from "@/components/ui/scroll-area";
+// import { ScrollArea } from "@/components/ui/scroll-area";
 import { SITE_TITLE, SITE_DESCRIPTION } from "astro:env/client";
 
 interface Props {
@@ -52,12 +52,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta content={description} property="twitter:description" />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
   </head>
-  <body>
-    <ScrollArea client:load className="flex h-screen w-full flex-col items-center justify-center overflow-auto">
-      <slot />
-      <Navigation client:load transition:persist="navigation" />
-      <Toaster client:load transition:persist="toaster" />
-    </ScrollArea>
+  <body class="flex min-h-screen w-full flex-col items-center justify-center overflow-auto">
+    <!-- <ScrollArea client:load className="flex h-screen w-full flex-col items-center justify-center overflow-auto"> -->
+    <slot />
+    <Navigation client:load transition:persist="navigation" />
+    <Toaster client:load transition:persist="toaster" />
+    <!-- </ScrollArea> -->
   </body>
 </html>
 
