@@ -13,7 +13,7 @@ const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tn
     return "## Cannot access GitHub to fetch the latest resume\n\nOpen it directly [https://github.com/tnfssc/tnfssc/blob/main/RESUME.md](https://github.com/tnfssc/tnfssc/blob/main/RESUME.md)";
   });
 
-const file = marked(content);
+const file = await marked(content);
 ---
 
 <Base title="sharath's resume">

@@ -1,6 +1,6 @@
-# [www.sca.run](https://www.sca.run)
+# [sca.run](https://sca.run)
 
-This repo has all the code for my site [www.sca.run](https://www.sca.run).
+This repo has all the code for my site [sca.run](https://sca.run).
 The entire website was made using Astro.
 
 ![Astro](https://img.shields.io/badge/Astro-5-c93679?style=for-the-badge&logo=astro)
