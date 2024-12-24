@@ -4,8 +4,6 @@ import Base from "@/layouts/Base.astro";
 import FloatingActionButton from "@/components/floating-action-button.astro";
 import MaterialSymbolsArrowBack2 from "~icons/material-symbols/arrow-back-2";
 
-export const prerender = true;
-
 const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/CHRONICLE.md"))
   .then((r) => {
     if (r.ok) return r;
