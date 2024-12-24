@@ -52,6 +52,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-sonarjs": "^3.0.1",
     "eslint-plugin-tailwindcss": "^3.17.5",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.469.0",
     "marked": "^15.0.4",
     "mini-svg-data-uri": "^1.4.4",

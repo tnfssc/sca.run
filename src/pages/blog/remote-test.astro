@@ -1,0 +1,19 @@
+---
+import { marked } from "marked";
+import matter from "gray-matter";
+import { MatterZod } from "@/types";
+import BlogPost from "@/layouts/BlogPost.astro";
+
+export const prerender = true;
+
+const { data, content } = await fetch(
+  "https://raw.githubusercontent.com/tnfssc/sca.run/refs/heads/develop/src/data/blog/mongo-sharded-cluster.mdx",
+)
+  .then((r) => r.text())
+  .then((r) => matter(r))
+  .then(async (r) => ({ data: MatterZod.parse(r.data), content: await marked(r.content) }));
+---
+
+<BlogPost {...data}>
+  <div set:html={content} />
+</BlogPost>

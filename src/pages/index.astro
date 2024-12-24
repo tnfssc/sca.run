@@ -17,20 +17,18 @@ const file = await marked(content);
 ---
 
 <Base title="sharath's resume">
-  <div class="flex flex-col items-center">
+  <main class="m-4 flex flex-col items-center">
     <article
-      set:html={file.toString()}
+      set:html={file}
       class:list={[
-        "m-4 max-w-[min(calc(100vw-32px),80ch)]",
-        "prose dark:prose-invert mx-auto",
-        "prose-a:no-underline hover:prose-a:underline prose-a:inline prose-img:inline",
-        "prose-hr:my-2",
+        "prose dark:prose-invert mx-auto max-w-[min(calc(100vw-32px),80ch)]",
+        "prose-a:no-underline hover:prose-a:underline prose-a:break-all",
+        "prose-img:rounded-xl",
         "prose-pre:mt-0 prose-pre:rounded-t-none",
-        "prose-code:whitespace-pre prose-code:rounded prose-code:border-[#24292e] prose-code:bg-[#24292e] prose-code:p-0.5 prose-code:text-white prose-code:before:hidden prose-code:after:hidden",
+        "prose-code:whitespace-pre prose-code:rounded prose-code:border-[#1e1e1e] prose-code:bg-[#1e1e1e] prose-code:p-0.5 prose-code:text-white prose-code:before:hidden prose-code:after:hidden",
         "defaults-for-unplugin-icons hide-quote-marks-inside-blockquote",
-        "[&_summary]:cursor-pointer",
-        "prose-img:my-1 prose-img:shadow-md prose-img:shadow-foreground/20 prose-img:rounded",
+        "prose-img:my-1 prose-img:shadow-md prose-img:shadow-foreground/20 prose-a:inline prose-img:inline prose-hr:my-2 [&_summary]:cursor-pointer",
       ]}
     />
-  </div>
+  </main>
 </Base>
