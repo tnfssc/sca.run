@@ -4,6 +4,8 @@ import { MatterZod } from "@/types";
 import { remarked } from "@/lib/remark";
 import BlogPost from "@/layouts/BlogPost.astro";
 
+export const prerender = true;
+
 const { data, content } = await fetch(
   "https://raw.githubusercontent.com/tnfssc/sca.run/refs/heads/develop/src/data/blog/cancel-copilot.mdx",
 )
