@@ -10,7 +10,6 @@ import { transformerTwoslash } from "@shikijs/twoslash";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import codeTitle from "remark-code-title";
 import rehypeMathjax from "rehype-mathjax";
-import rehypeMermaid from "rehype-mermaid";
 
 import vercel from "@astrojs/vercel";
 
@@ -23,7 +22,7 @@ export default defineConfig({
   vite: { plugins: [Icons({ compiler: "astro" })] },
   markdown: {
     remarkPlugins: [remarkGemoji, codeTitle],
-    rehypePlugins: [rehypeMathjax, rehypeMermaid],
+    rehypePlugins: [rehypeMathjax],
     syntaxHighlight: "shiki",
     shikiConfig: {
       theme: "dark-plus",

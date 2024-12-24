@@ -6,7 +6,6 @@ import remarkRehype from "remark-rehype";
 import remarkGemoji from "remark-gemoji";
 import rehypeShiki from "@shikijs/rehype";
 import rehypeMathjax from "rehype-mathjax";
-import rehypeMermaid from "rehype-mermaid";
 import rehypeStringify from "rehype-stringify";
 import remarkCodeTitle from "remark-code-title";
 import remarkFrontmatter from "remark-frontmatter";
@@ -25,7 +24,6 @@ export const remarked = (md: string): Promise<string> =>
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeMathjax)
-    .use(rehypeMermaid)
     .use(rehypeShiki, {
       themes: { dark: "dark-plus", light: "dark-plus" },
       transformers: [
