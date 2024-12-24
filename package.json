@@ -56,6 +56,7 @@
     "eslint-plugin-tailwindcss": "^3.17.5",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.469.0",
+    "mermaid": "^11.4.1",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^11.15.0",
     "nanostores": "^0.11.3",
