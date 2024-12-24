@@ -1,5 +1,5 @@
 ---
-import { marked } from "marked";
+import { remarked } from "@/lib/remark";
 import Base from "@/layouts/Base.astro";
 import FloatingActionButton from "@/components/floating-action-button.astro";
 import MaterialSymbolsArrowBack2 from "~icons/material-symbols/arrow-back-2";
@@ -10,7 +10,7 @@ const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tn
     else throw new Error("Failed to fetch data");
   })
   .then((r) => r.text())
-  .then(marked)
+  .then(remarked)
   .catch((e) => {
     console.error(e);
     return "## Cannot access GitHub to fetch the latest resume\n\nOpen it directly [https://github.com/tnfssc/tnfssc/blob/main/RESUME.md](https://github.com/tnfssc/tnfssc/blob/main/RESUME.md)";
@@ -19,12 +19,15 @@ const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tn
 
 <Base title="sharath's chronicle">
   <main class="m-4 flex flex-col items-center">
-    <FloatingActionButton transition:persist="chronicle-switch">
+    <FloatingActionButton
+      transition:persist="chronicle-switch"
+      className="bg-teal-700 hover:bg-teal-800 active:bg-teal-800"
+    >
       <a
         href="/"
-        class="flex size-full items-center justify-center rounded-full text-secondary-foreground hover:underline"
+        class="group flex size-full items-center justify-center rounded-full text-secondary-foreground hover:underline"
       >
-        <MaterialSymbolsArrowBack2 class="size-8" />
+        <MaterialSymbolsArrowBack2 class="size-8 transition-transform group-hover:scale-105 group-active:rotate-90" />
       </a>
     </FloatingActionButton>
     <article
@@ -37,6 +40,7 @@ const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tn
         "prose-code:whitespace-pre prose-code:rounded prose-code:border-[#1e1e1e] prose-code:bg-[#1e1e1e] prose-code:p-0.5 prose-code:text-white prose-code:before:hidden prose-code:after:hidden",
         "defaults-for-unplugin-icons hide-quote-marks-inside-blockquote",
         "prose-img:my-1 prose-img:shadow-md prose-img:shadow-foreground/20 prose-a:inline prose-img:inline prose-hr:my-2 [&_summary]:cursor-pointer",
+        "hover:prose-img:outline prose-img:outline-gray-500",
       ]}
     />
   </main>

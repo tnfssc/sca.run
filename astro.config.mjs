@@ -10,6 +10,8 @@ import cloudflare from "@astrojs/cloudflare";
 import { transformerTwoslash } from "@shikijs/twoslash";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import codeTitle from "remark-code-title";
+import rehypeMathjax from "rehype-mathjax";
+import rehypeMermaid from "rehype-mermaid";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,6 +22,7 @@ export default defineConfig({
   vite: { plugins: [Icons({ compiler: "astro" })] },
   markdown: {
     remarkPlugins: [remarkGemoji, codeTitle],
+    rehypePlugins: [rehypeMathjax, rehypeMermaid],
     syntaxHighlight: "shiki",
     shikiConfig: {
       theme: "dark-plus",

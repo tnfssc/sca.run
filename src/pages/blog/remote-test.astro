@@ -1,17 +1,17 @@
 ---
-import { marked } from "marked";
 import matter from "gray-matter";
 import { MatterZod } from "@/types";
+import { remarked } from "@/lib/remark";
 import BlogPost from "@/layouts/BlogPost.astro";
 
 export const prerender = true;
 
 const { data, content } = await fetch(
-  "https://raw.githubusercontent.com/tnfssc/sca.run/refs/heads/develop/src/data/blog/mongo-sharded-cluster.mdx",
+  "https://raw.githubusercontent.com/tnfssc/sca.run/refs/heads/develop/src/data/blog/cancel-copilot.mdx",
 )
   .then((r) => r.text())
   .then((r) => matter(r))
-  .then(async (r) => ({ data: MatterZod.parse(r.data), content: await marked(r.content) }));
+  .then(async (r) => ({ data: MatterZod.parse(r.data), content: await remarked(r.content) }));
 ---
 
 <BlogPost {...data}>

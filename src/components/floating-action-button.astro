@@ -1,5 +1,18 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
 <div
-  class="fixed bottom-4 right-4 flex size-14 items-center justify-center rounded-full bg-purple-600 shadow-lg fade-in hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400 active:bg-purple-500"
+  class={cn(
+    "fixed bottom-4 right-4 flex size-14 items-center justify-center rounded-full bg-purple-600 shadow-lg fade-in hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400 active:bg-purple-500",
+    className,
+  )}
 >
   <slot />
 </div>
