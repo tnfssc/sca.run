@@ -95,3 +95,26 @@
     scrollbar-width: none;
   }
 }
+
+.twoslash {
+  padding-bottom: 38px !important;
+}
+
+.shiki,
+.shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+.rehype-pretty-copy {
+  top: 10px;
+  color: var(--foreground);
+  position: absolute;
+}
+
+div[data-remark-code-title] {
+  @apply font-mono p-2 pl-4 font-medium rounded-t-md bg-[#1e1e1e] text-white border-b border-gray-500 text-xs;
+}

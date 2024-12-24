@@ -7,7 +7,9 @@ import remarkGemoji from "remark-gemoji";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig, envField } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import { transformerTwoslash } from "@shikijs/twoslash";
+import { transformerCopyButton } from "@rehype-pretty/transformers";
+import codeTitle from "remark-code-title";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,12 +18,18 @@ export default defineConfig({
   image: { domains: ["cdn.sharath.uk", "img.shields.io"] },
   adapter: cloudflare({ imageService: "compile" }),
   vite: { plugins: [Icons({ compiler: "astro" })] },
-  integrations: [
-    mdx({ remarkPlugins: [remarkGemoji], rehypePlugins: [rehypeAccessibleEmojis] }),
-    sitemap(),
-    react(),
-    tailwind({ applyBaseStyles: false }),
-  ],
+  markdown: {
+    remarkPlugins: [remarkGemoji, codeTitle],
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "dark-plus",
+      transformers: [
+        transformerTwoslash({ explicitTrigger: true }),
+        transformerCopyButton({ visibility: "always", feedbackDuration: 3000 }),
+      ],
+    },
+  },
+  integrations: [mdx(), sitemap(), react(), tailwind({ applyBaseStyles: false })],
   env: {
     validateSecrets: true,
     schema: {

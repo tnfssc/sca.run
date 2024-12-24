@@ -9,10 +9,6 @@ authorName: nikhil
 authorProfileUrl: https://github.com/NikhilBayyavarapu
 ---
 
-export * from "@/components/mdx";
-
-import CodeHead from "@/components/code-head.astro";
-
 ## Introduction
 
 MongoDB sharding enables horizontal scaling by distributing data across multiple servers. This guide provides a step-by-step process to configure and manage a MongoDB sharded cluster using Docker.
@@ -20,8 +16,6 @@ MongoDB sharding enables horizontal scaling by distributing data across multiple
 ## Step 1: Create a Docker Network
 
 All containers must be on the same network for communication. Create a Docker network using:
-
-<CodeHead lang="sh" />
 
 ```sh
 docker network create mongo-shard-cluster
@@ -47,8 +41,6 @@ These components work together to ensure scalability, fault tolerance, and effic
 
 Config servers store metadata about the cluster using the following script
 
-<CodeHead lang="sh" />
-
 ```sh
 # Start Config Servers
 docker run -d --net mongo-shard-cluster --name config-svr-1 -p 27101:27017 mongo:4.4 mongod --port 27017 --configsvr --replSet config-svr-replica-set
@@ -72,8 +64,6 @@ docker exec -it config-svr-1 mongo --eval '
 ```
 
 ## Step 3: Setup Shards
-
-<CodeHead lang="sh" />
 
 ```sh
 # Function to create a shard replica set
@@ -112,8 +102,6 @@ The above script creates 3 shard-replica set each with 3 nodes. One of nodes act
 
 Routers serve as the interface between the application and the sharded cluster.
 
-<CodeHead lang="sh" />
-
 ```sh
 # Start Router Instances
 docker run -d --net mongo-shard-cluster --name router-1 -p 27151:27017 mongo:4.4 mongos \
@@ -138,8 +126,6 @@ sleep 5
 ## Step 5: Connect Shards to the Cluster
 
 Connect each shard to the routers using the following script:
-
-<CodeHead lang="sh" />
 
 ```sh
 # Add shards to the cluster via Router-1
@@ -178,15 +164,11 @@ Check the status of your cluster:
 
 Connect to the terminal of any of the routers using:
 
-<CodeHead lang="sh" />
-
 ```sh
 docker exec -it router-1 mongo
 ```
 
-<CodeHead lang="javascript" />
-
-```javascript
+```ts
 sh.status();
 ```
 

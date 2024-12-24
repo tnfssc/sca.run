@@ -9,11 +9,7 @@ authorName: sharath
 authorProfileUrl: https://sca.run
 ---
 
-export * from "@/components/mdx";
-
 import Checkbox from "@/components/check-box.astro";
-import CodeHead from "@/components/code-head.astro";
-
 import BiGpuCardIcon from "~icons/bi/gpu-card";
 import CodiconExtensionsIcon from "~icons/codicon/extensions";
 import CodiconSyncIcon from "~icons/codicon/sync";
@@ -126,8 +122,6 @@ Now I knew that the problem was never with VSCode, but it's upstream dependency,
 Equipped with this knowledge, I looked for a solution. I found a GitHub issue. It was a similar problem as mine. [#206510](https://github.com/microsoft/vscode/issues/206510#issuecomment-2070911552).
 I followed the command in this comment and it worked. I opened VSCode. It was working (almost). The suggested command had a few issues.
 
-<CodeHead lang="bash" />
-
 ```bash
 code --disable-gpu --disable-software-rasterizer
 ```
@@ -168,8 +162,6 @@ I then discovered that it was possible to use Microsoft's marketplace instead of
 
 I just had to add the following variables to environment I launch VSCodium with.
 
-<CodeHead lang="env" />
-
 ```sh
 VSCODE_GALLERY_SERVICE_URL='https://marketplace.visualstudio.com/_apis/public/gallery'
 VSCODE_GALLERY_ITEM_URL='https://marketplace.visualstudio.com/items'
@@ -194,8 +186,6 @@ I realized that if I can first get my ZSH configuration to work first, then my t
 The [official documentation](https://github.com/flathub/com.vscodium.codium) says that I can use this command
 to execute a command in the host's environment.
 
-<CodeHead lang="sh" />
-
 ```bash
 flatpak-spawn --host zsh
 # or
@@ -209,8 +199,6 @@ I ran into issues when using `flatpak-spawn` or `host-spawn`. Apparently, my ZSH
 I came across a GitHub issue that provided a solution.
 I had to use a [modified version](https://github.com/1player/host-spawn) of `host-spawn`. I downloaded it and moved it to `/app/bin`.
 
-<CodeHead lang="sh" />
-
 ```bash
 wget https://github.com/1player/host-spawn/releases/download/v1.6.0/host-spawn-x86_64 -O /app/bin/host-spawn
 chmod +x /app/bin/host-spawn
@@ -218,9 +206,7 @@ chmod +x /app/bin/host-spawn
 
 I added the following to my `settings.json` file.
 
-<CodeHead lang="json" filename="settings.json" />
-
-```json
+```json title="settings.json"
 {
   // snip
   "terminal.integrated.defaultProfile.linux": "zsh",
@@ -256,8 +242,6 @@ It basically syncs VSCodium settings into a GitHub repository. I just created a 
 
 Here's the configuration I used.
 
-<CodeHead lang="yaml" />
-
 ```yaml
 repository:
   type: git
@@ -265,9 +249,7 @@ repository:
   branch: main
 ```
 
-<CodeHead lang="json" filename="settings.json" />
-
-```json
+```json title="settings.json"
 {
   // snip
   "syncSettings.crons": {
@@ -298,17 +280,13 @@ The Flatpak uses XWayland by default, so I need to enable Wayland support. Again
 
 However, this didn't work. I later figured out that I need to use the following command to enable Wayland support.
 
-<CodeHead lang="bash" />
-
 ```bash
 flatpak run com.BraveSoftware.Brave --enable-features=VaapiVideoDecoder,UseOzonePlatform --ozone-platform=wayland --enable-gpu-rasterization
 ```
 
 As I didn't want to enter this long command every time, I added them to the following file.
 
-<CodeHead lang="sh" filename="codium-flags.conf" />
-
-```yml
+```yml title="codium-flags.conf"
 # ~/.var/app/com.vscodium.codium-insiders/config/codium-flags.conf
 --enable-features=VaapiVideoDecoder,UseOzonePlatform
 --ozone-platform=wayland
@@ -318,9 +296,7 @@ As I didn't want to enter this long command every time, I added them to the foll
 This will make sure that when I run VSCodium, these flags are passed to it.
 I also added an alias to my `.zshrc` file so that I can open VSCodium with a single letter `c`.
 
-<CodeHead lang="sh" filename=".zshrc" />
-
-```sh
+```sh title=".zshrc"
 c() { flatpak run com.vscodium.codium-insiders ${@:-.}; }
 ```
 

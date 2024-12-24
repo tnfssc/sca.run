@@ -9,10 +9,6 @@ authorName: sharath
 authorProfileUrl: https://sca.run
 ---
 
-export * from "@/components/mdx";
-
-import CodeHead from "@/components/code-head.astro";
-
 ## ⭐️ [continue.dev](https://continue.dev/)
 
 [continue.dev](https://continue.dev/) is a free AI powered code generation and autocomplete extension/tool for VSCode. It is fully open source. We will use it in conjunction with "some" LLM backend.
@@ -39,9 +35,7 @@ Open your VSCode and open `settings.json` file. You can do this by pressing `[CT
 
 You will see a massive JSON file. You need to add this property into the JSON.
 
-<CodeHead lang="json" filename="settings.json" />
-
-```json
+```json title="settings.json"
 {
   /// snip
   "remote.extensionKind": {
@@ -61,9 +55,7 @@ Switch to the `Pre-Release Version` (or above v0.9.127).
 
 Once installed, open the file at `~/.continue/config.json`. Delete all the file contents and replace it with the below JSON.
 
-<CodeHead lang="json" filename="settings.json" />
-
-````json
+````json title="settings.json"
 {
   "models": [
     {

@@ -1,9 +1,5 @@
 ---
 import { LangIcons } from "@/lib/lang-icon";
-import TablerCopy from "~icons/tabler/copy";
-import TablerCircleCheckFilled from "~icons/tabler/circle-check-filled";
-
-import { CodeHeadCopy } from "./code-head-copy";
 
 interface Props {
   filename?: string;
@@ -18,8 +14,4 @@ const Component = LangIcons[lang];
 <div class="mt-6 flex w-full items-center gap-2 rounded-t-lg border-b border-solid border-border bg-muted p-2">
   <Component class="!mb-0 inline !h-4 !w-4" />
   <span class="flex-1 font-mono text-sm font-bold">{filename ?? lang}</span>
-  <CodeHeadCopy client:visible className="mr-1 hover:text-muted-foreground">
-    <TablerCopy class="!mb-0 !h-full !w-full" />
-    <TablerCircleCheckFilled slot="copiedIcon" class="!mb-0 !h-full !w-full text-green-500 hover:text-green-500" />
-  </CodeHeadCopy>
 </div>

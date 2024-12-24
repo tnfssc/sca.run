@@ -55,6 +55,12 @@ importers:
       "@radix-ui/react-tooltip":
         specifier: ^1.1.6
         version: 1.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      "@rehype-pretty/transformers":
+        specifier: ^0.13.2
+        version: 0.13.2
+      "@shikijs/twoslash":
+        specifier: ^1.24.4
+        version: 1.24.4(typescript@5.7.2)
       "@tailwindcss/typography":
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.17)
@@ -148,6 +154,9 @@ importers:
       rehype-accessible-emojis:
         specifier: ^0.3.2
         version: 0.3.2
+      remark-code-title:
+        specifier: ^0.2.5
+        version: 0.2.5
       remark-gemoji:
         specifier: ^8.0.0
         version: 8.0.0
@@ -2329,6 +2338,11 @@ packages:
     resolution:
       { integrity: sha512-A9+lCBZoaMJlVKcRBz2YByCG+Cp2t6nAnMnNba+XiWxnj6r4JUFqfsgwocMBZU9LPtdxC6wB56ySYpc7LQIoJg== }
 
+  "@rehype-pretty/transformers@0.13.2":
+    resolution:
+      { integrity: sha512-p2ciQSwqy5Ip8aNUa9q6rdS/hJZXrxHYYfDVOHvKOsBu3t9HDmQ65YX6r9Qbl19vi160OAxmGF7MIoCRDJrRhg== }
+    engines: { node: ">=18" }
+
   "@rollup/pluginutils@5.1.4":
     resolution:
       { integrity: sha512-USm05zrsFxYLPdWWq+K3STlWiT/3ELn3RcV5hJMghpeAIhxfsUIg6mt12CBJBInWMV4VneoV7SfGv8xIwo2qNQ== }
@@ -2446,6 +2460,10 @@ packages:
   "@shikijs/engine-oniguruma@1.24.4":
     resolution:
       { integrity: sha512-Do2ry6flp2HWdvpj2XOwwa0ljZBRy15HKZITzPcNIBOGSeprnA8gOooA/bLsSPuy8aJBa+Q/r34dMmC3KNL/zw== }
+
+  "@shikijs/twoslash@1.24.4":
+    resolution:
+      { integrity: sha512-oCQhpbWK5/LsfPKeKzXwcZKVTkdawpCmMrCMDBZ4jjI/kiMiPIqDX9aC7ktLJaSO4/4XrcYzza4rTkQv39VCdw== }
 
   "@shikijs/types@1.24.4":
     resolution:
@@ -2654,6 +2672,12 @@ packages:
     resolution:
       { integrity: sha512-0/TdC3aeRAsW7MDvYRwEc1Uwm0TIBfzjPFgg60UU2Haj5qsCs9cc3zNgY71edqE3LbWfF/WoZQd3lJoDXFQpag== }
     engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
+
+  "@typescript/vfs@1.6.0":
+    resolution:
+      { integrity: sha512-hvJUjNVeBMp77qPINuUvYXj4FyWeeMMKZkxEATEU3hqBAQ7qdTBCUFT7Sp0Zu0faeEtFf+ldXxMEDr/bk73ISg== }
+    peerDependencies:
+      typescript: "*"
 
   "@ungap/structured-clone@1.2.0":
     resolution:
@@ -5381,6 +5405,10 @@ packages:
     resolution:
       { integrity: sha512-j31mdaRFrwFRUIlxGeuPXXKWQxet52RBQRvCmzl5eCefn/KGbomK5GMHNMsOJf55fgo3qw5tST5neDuarDYR2A== }
 
+  remark-code-title@0.2.5:
+    resolution:
+      { integrity: sha512-6tIhdZdECMM0EQk3eDFxUQn/97VKKmo7JkCwfg/mkJaZZBwH+cbP0UDRslOqqzLcueakPZ8q7Gtj5KtGB/jufw== }
+
   remark-gemoji@8.0.0:
     resolution:
       { integrity: sha512-/fL9rc72FYwFGtOKcT+QeQdx9Q9t5v4N6KLXSDOTEgaedzK85I9judBqB2eqz+g4b0ERMejlwSOuPK+wket6aA== }
@@ -5844,6 +5872,16 @@ packages:
     resolution:
       { integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA== }
 
+  twoslash-protocol@0.2.12:
+    resolution:
+      { integrity: sha512-5qZLXVYfZ9ABdjqbvPc4RWMr7PrpPaaDSeaYY55vl/w1j6H6kzsWK/urAEIXlzYlyrFmyz1UbwIt+AA0ck+wbg== }
+
+  twoslash@0.2.12:
+    resolution:
+      { integrity: sha512-tEHPASMqi7kqwfJbkk7hc/4EhlrKCSLcur+TcvYki3vhIfaRMXnXjaYFgXpoZRbT6GdprD4tGuVBEmTpUgLBsw== }
+    peerDependencies:
+      typescript: "*"
+
   type-check@0.4.0:
     resolution:
       { integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew== }
@@ -5961,6 +5999,10 @@ packages:
     resolution:
       { integrity: sha512-IG32jcKJlhARCYT2LsYPJWdoXYkzz3ESAdl1aa2hn9Auh+cgUmU6wgkII4yCc/1GgeWibRdELdCZh/p3QKQ1dQ== }
 
+  unist-util-is@5.2.1:
+    resolution:
+      { integrity: sha512-u9njyyfEh43npf1M+yGKDGVPbY/JWEemg5nH05ncKPfi+kBbKBJoTdsogMu33uhytuLlv9y0O7GH7fEdwLdLQw== }
+
   unist-util-is@6.0.0:
     resolution:
       { integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw== }
@@ -5989,9 +6031,17 @@ packages:
     resolution:
       { integrity: sha512-RgmdTfSBOg04sdPcpTSD1jzoNBjt9a80/ZCzp5cI9n1qPzLZWF9YdvWGN2zmTumP1HWhXKdUWexjy/Wy/lJ7tA== }
 
+  unist-util-visit-parents@5.1.3:
+    resolution:
+      { integrity: sha512-x6+y8g7wWMyQhL1iZfhIPhDAs7Xwbn9nRosDXl7qoPTSCy0yNxnKc+hWokFifWQIDGi154rdUqKvbCa4+1kLhg== }
+
   unist-util-visit-parents@6.0.1:
     resolution:
       { integrity: sha512-L/PqWzfTP9lzzEa6CKs0k2nARxTdZduw3zyh8d2NVBnsyvHjSX4TWse388YrrQKbvI8w20fGjGlhgT96WwKykw== }
+
+  unist-util-visit@4.1.2:
+    resolution:
+      { integrity: sha512-MSd8OUGISqHdVvfY9TPhyK2VdUrPgxkUtWSuMHF6XAAFuL4LokseigBnZtPnJMu+FbynTkFNnFlyjxpVKujMRg== }
 
   unist-util-visit@5.0.0:
     resolution:
@@ -8356,6 +8406,8 @@ snapshots:
 
   "@radix-ui/rect@1.1.0": {}
 
+  "@rehype-pretty/transformers@0.13.2": {}
+
   "@rollup/pluginutils@5.1.4(rollup@4.24.0)":
     dependencies:
       "@types/estree": 1.0.6
@@ -8431,6 +8483,15 @@ snapshots:
     dependencies:
       "@shikijs/types": 1.24.4
       "@shikijs/vscode-textmate": 9.3.1
+
+  "@shikijs/twoslash@1.24.4(typescript@5.7.2)":
+    dependencies:
+      "@shikijs/core": 1.24.4
+      "@shikijs/types": 1.24.4
+      twoslash: 0.2.12(typescript@5.7.2)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   "@shikijs/types@1.24.4":
     dependencies:
@@ -8649,6 +8710,13 @@ snapshots:
     dependencies:
       "@typescript-eslint/types": 8.8.1
       eslint-visitor-keys: 3.4.3
+
+  "@typescript/vfs@1.6.0(typescript@5.7.2)":
+    dependencies:
+      debug: 4.4.0
+      typescript: 5.7.2
+    transitivePeerDependencies:
+      - supports-color
 
   "@ungap/structured-clone@1.2.0": {}
 
@@ -11515,6 +11583,10 @@ snapshots:
       rehype-stringify: 10.0.1
       unified: 11.0.5
 
+  remark-code-title@0.2.5:
+    dependencies:
+      unist-util-visit: 4.1.2
+
   remark-gemoji@8.0.0:
     dependencies:
       "@types/mdast": 4.0.4
@@ -12012,6 +12084,16 @@ snapshots:
 
   tslib@2.7.0: {}
 
+  twoslash-protocol@0.2.12: {}
+
+  twoslash@0.2.12(typescript@5.7.2):
+    dependencies:
+      "@typescript/vfs": 1.6.0(typescript@5.7.2)
+      twoslash-protocol: 0.2.12
+      typescript: 5.7.2
+    transitivePeerDependencies:
+      - supports-color
+
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
@@ -12130,6 +12212,10 @@ snapshots:
 
   unist-util-flatmap@1.0.0: {}
 
+  unist-util-is@5.2.1:
+    dependencies:
+      "@types/unist": 2.0.11
+
   unist-util-is@6.0.0:
     dependencies:
       "@types/unist": 3.0.3
@@ -12160,10 +12246,21 @@ snapshots:
     dependencies:
       "@types/unist": 3.0.3
 
+  unist-util-visit-parents@5.1.3:
+    dependencies:
+      "@types/unist": 2.0.11
+      unist-util-is: 5.2.1
+
   unist-util-visit-parents@6.0.1:
     dependencies:
       "@types/unist": 3.0.3
       unist-util-is: 6.0.0
+
+  unist-util-visit@4.1.2:
+    dependencies:
+      "@types/unist": 2.0.11
+      unist-util-is: 5.2.1
+      unist-util-visit-parents: 5.1.3
 
   unist-util-visit@5.0.0:
     dependencies:
