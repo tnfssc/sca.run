@@ -6,19 +6,20 @@ import Icons from "unplugin-icons/vite";
 import remarkGemoji from "remark-gemoji";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig, envField } from "astro/config";
-import cloudflare from "@astrojs/cloudflare";
 import { transformerTwoslash } from "@shikijs/twoslash";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import codeTitle from "remark-code-title";
 import rehypeMathjax from "rehype-mathjax";
 import rehypeMermaid from "rehype-mermaid";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   site: process.env.BASE_URL ?? "https://www.sca.run",
   image: { domains: ["cdn.sharath.uk", "img.shields.io"] },
-  adapter: cloudflare({ imageService: "compile" }),
+  adapter: vercel({ isr: true }),
   vite: { plugins: [Icons({ compiler: "astro" })] },
   markdown: {
     remarkPlugins: [remarkGemoji, codeTitle],

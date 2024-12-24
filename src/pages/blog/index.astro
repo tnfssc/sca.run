@@ -5,6 +5,8 @@ import Base from "@/layouts/Base.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "@/components/formatted-date.astro";
 
+export const prerender = true;
+
 const posts = await getCollection("blog").then((allPosts) =>
   allPosts.filter((post) => post.data.public).toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
 );
