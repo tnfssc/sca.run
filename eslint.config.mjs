@@ -13,7 +13,7 @@ import { fixupPluginRules } from "@eslint/compat";
 import eslintReactHooks from "eslint-plugin-react-hooks";
 
 export default tseslint.config(
-  { ignores: ["node_modules/*", "dist/*", ".astro/*", "*.mjs"] },
+  { ignores: ["node_modules/*", "dist/*", ".astro/*", "*.mjs", ".vercel/*"] },
   js.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
