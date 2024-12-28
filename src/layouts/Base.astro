@@ -3,8 +3,8 @@ import "@shikijs/twoslash/style-rich.css";
 import "@/styles/globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ClientRouter } from "astro:transitions";
+import Posthog from "@/components/posthog.astro";
 import { Navigation } from "@/components/navigation";
-// import { ScrollArea } from "@/components/ui/scroll-area";
 import { SITE_TITLE, SITE_DESCRIPTION } from "astro:env/client";
 
 interface Props {
@@ -52,13 +52,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta content={title} property="twitter:title" />
     <meta content={description} property="twitter:description" />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <Posthog />
   </head>
   <body class="flex min-h-screen w-full flex-col items-center justify-center overflow-auto">
-    <!-- <ScrollArea client:load className="flex h-screen w-full flex-col items-center justify-center overflow-auto"> -->
     <slot />
     <Navigation client:load transition:persist="navigation" />
     <Toaster client:load transition:persist="toaster" />
-    <!-- </ScrollArea> -->
   </body>
 </html>
 
