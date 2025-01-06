@@ -53,6 +53,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta content={description} property="twitter:description" />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+    <link
+      rel="alternate"
+      title="Your Site's Title"
+      type="application/rss+xml"
+      href={new URL("blog/rss.xml", Astro.site)}
+    />
     <Posthog />
   </head>
   <body class="flex min-h-screen w-full flex-col items-center justify-center overflow-auto">

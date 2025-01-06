@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
+import Giscus from "@giscus/react";
 import { Image } from "astro:assets";
 import FormattedDate from "@/components/formatted-date.astro";
 import MaterialSymbolsLockIcon from "~icons/material-symbols/lock";
@@ -73,6 +74,23 @@ const { date, tags, title, heroImage, authorName, description, public: isPublic,
           <hr class="my-4" />
         </div>
         <slot />
+      </div>
+      <div class="mt-12">
+        <Giscus
+          lang="en"
+          theme="dark"
+          id="comments"
+          loading="lazy"
+          emitMetadata="0"
+          mapping="pathname"
+          category="General"
+          client:only="react"
+          inputPosition="top"
+          reactionsEnabled="1"
+          repo="tnfssc/sca.run"
+          repoId="R_kgDONDu6dQ"
+          categoryId="DIC_kwDONDu6dc4Clywm"
+        />
       </div>
     </article>
   </main>

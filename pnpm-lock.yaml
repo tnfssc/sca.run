@@ -19,6 +19,9 @@ importers:
       "@astrojs/react":
         specifier: ^4.1.2
         version: 4.1.2(@types/node@22.7.5)(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(jiti@2.4.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yaml@2.6.0)
+      "@astrojs/rss":
+        specifier: ^4.0.10
+        version: 4.0.10
       "@astrojs/sitemap":
         specifier: ^3.2.1
         version: 3.2.1
@@ -34,6 +37,9 @@ importers:
       "@eslint/js":
         specifier: ^9.17.0
         version: 9.17.0
+      "@giscus/react":
+        specifier: ^3.1.0
+        version: 3.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       "@iconify/json":
         specifier: ^2.2.287
         version: 2.2.287
@@ -217,6 +223,9 @@ importers:
       wrangler:
         specifier: ^3.99.0
         version: 3.99.0(@cloudflare/workers-types@4.20241218.0)
+      zod:
+        specifier: ^3.24.1
+        version: 3.24.1
 
 packages:
   "@alloc/quick-lru@5.2.0":
@@ -316,6 +325,10 @@ packages:
       "@types/react-dom": ^17.0.17 || ^18.0.6 || ^19.0.0
       react: ^17.0.2 || ^18.0.0 || ^19.0.0
       react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0
+
+  "@astrojs/rss@4.0.10":
+    resolution:
+      { integrity: sha512-2gFdHM763uUAySkdwPYrpi6dppOBJr9ddg5VbkKXctWze8d1JHgIBBY78zWIYs7KBJT58zxadsObVAVt55RDaw== }
 
   "@astrojs/sitemap@3.2.1":
     resolution:
@@ -1688,6 +1701,13 @@ packages:
     resolution:
       { integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig== }
 
+  "@giscus/react@3.1.0":
+    resolution:
+      { integrity: sha512-0TCO2TvL43+oOdyVVGHDItwxD1UMKP2ZYpT6gXmhFOqfAJtZxTzJ9hkn34iAF/b6YzyJ4Um89QIt9z/ajmAEeg== }
+    peerDependencies:
+      react: ^16 || ^17 || ^18 || ^19
+      react-dom: ^16 || ^17 || ^18 || ^19
+
   "@humanfs/core@0.19.1":
     resolution:
       { integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA== }
@@ -1891,6 +1911,14 @@ packages:
   "@jridgewell/trace-mapping@0.3.9":
     resolution:
       { integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ== }
+
+  "@lit-labs/ssr-dom-shim@1.2.1":
+    resolution:
+      { integrity: sha512-wx4aBmgeGvFmOKucFKY+8VFJSYZxs9poN3SDNQFF6lT6NrQUnHiPB2PWz2sc4ieEcAaYYzN+1uWahEeTq2aRIQ== }
+
+  "@lit/reactive-element@2.0.4":
+    resolution:
+      { integrity: sha512-GFn91inaUa2oHLak8awSIigYz0cU0Payr1rcFsrkf5OJ5eSPxElyZfKh0f2p9FsTiZWXQdWGJeXZICEfXXYSXQ== }
 
   "@mapbox/node-pre-gyp@2.0.0-rc.0":
     resolution:
@@ -2643,6 +2671,10 @@ packages:
   "@types/sax@1.2.7":
     resolution:
       { integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A== }
+
+  "@types/trusted-types@2.0.7":
+    resolution:
+      { integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw== }
 
   "@types/unist@2.0.11":
     resolution:
@@ -3848,6 +3880,11 @@ packages:
     resolution:
       { integrity: sha512-GR6f0hD7XXyNJa25Tb9BuIdN0tdr+0BMi6/CJPH3wJO1JjNG3n/VsSw38AwRdKZABm8lGbPfakLRkYzx2V9row== }
 
+  fast-xml-parser@4.5.1:
+    resolution:
+      { integrity: sha512-y655CeyUQ+jj7KBbYMc4FG01V8ZQqjN+gDYGJ50RtfsUB8iG9AmwmwoAgeKLJdmueKKMrH1RJ7yXHTSoczdv5w== }
+    hasBin: true
+
   fastq@1.17.1:
     resolution:
       { integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w== }
@@ -4028,6 +4065,10 @@ packages:
     resolution:
       { integrity: sha512-g0QYk1dZBxGwk+Ngc+ltRH2IBp2f7zBkBMBJZCDerh6EhlhSR6+9irMCuT/09zD6qkarHUSn529sK/yL4S27mg== }
     engines: { node: ">= 0.4" }
+
+  giscus@1.6.0:
+    resolution:
+      { integrity: sha512-Zrsi8r4t1LVW950keaWcsURuZUQwUaMKjvJgTCY125vkW6OiEBkatE7ScJDbpqKHdZwb///7FVC21SE3iFK3PQ== }
 
   git-hooks-list@3.1.0:
     resolution:
@@ -4648,6 +4689,18 @@ packages:
     resolution:
       { integrity: sha512-I8oW2+QL5KJo8zXNWX046M134WchxsXC7SawLPvRQpogCbkyQIaFxPE89A2HiwR7vAK2Dm2ERBAmyjTYGYEpBg== }
     hasBin: true
+
+  lit-element@4.1.1:
+    resolution:
+      { integrity: sha512-HO9Tkkh34QkTeUmEdNYhMT8hzLid7YlMlATSi1q4q17HE5d9mrrEHJ/o8O2D0cMi182zK1F3v7x0PWFjrhXFew== }
+
+  lit-html@3.2.1:
+    resolution:
+      { integrity: sha512-qI/3lziaPMSKsrwlxH/xMgikhQ0EGOX2ICU73Bi/YHFvz2j/yMCIrw4+puF2IpQ4+upd3EWbvnHM9+PnJn48YA== }
+
+  lit@3.2.1:
+    resolution:
+      { integrity: sha512-1BBa1E/z0O9ye5fZprPtdqnc0BFzxIxTTOO/tQFmyC/hj1O3jL4TfmLBw0WEwjAokdLwpclkvGgDJwTIh0/22w== }
 
   load-yaml-file@0.2.0:
     resolution:
@@ -6142,6 +6195,10 @@ packages:
       { integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig== }
     engines: { node: ">=8" }
 
+  strnum@1.0.5:
+    resolution:
+      { integrity: sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA== }
+
   style-to-object@0.4.4:
     resolution:
       { integrity: sha512-HYNoHZa2GorYNyqiCaBgsxvcJIn7OHq6inEga+E6Ke3m5JkoqpQbnFssk4jwe+K7AhGa2fcha4wSOf1Kn01dMg== }
@@ -7030,9 +7087,9 @@ packages:
       typescript: ^4.9.4 || ^5.0.2
       zod: ^3
 
-  zod@3.23.8:
+  zod@3.24.1:
     resolution:
-      { integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g== }
+      { integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A== }
 
   zwitch@2.0.4:
     resolution:
@@ -7213,11 +7270,16 @@ snapshots:
       - tsx
       - yaml
 
+  "@astrojs/rss@4.0.10":
+    dependencies:
+      fast-xml-parser: 4.5.1
+      kleur: 4.1.5
+
   "@astrojs/sitemap@3.2.1":
     dependencies:
       sitemap: 8.0.0
       stream-replace-string: 2.0.0
-      zod: 3.23.8
+      zod: 3.24.1
 
   "@astrojs/tailwind@5.1.4(astro@5.1.1(@types/node@22.7.5)(jiti@2.4.2)(rollup@4.24.0)(typescript@5.7.2)(yaml@2.6.0))(tailwindcss@3.4.17)":
     dependencies:
@@ -8350,6 +8412,12 @@ snapshots:
 
   "@floating-ui/utils@0.2.8": {}
 
+  "@giscus/react@3.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)":
+    dependencies:
+      giscus: 1.6.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   "@humanfs/core@0.19.1": {}
 
   "@humanfs/node@0.16.6":
@@ -8500,6 +8568,12 @@ snapshots:
     dependencies:
       "@jridgewell/resolve-uri": 3.1.2
       "@jridgewell/sourcemap-codec": 1.5.0
+
+  "@lit-labs/ssr-dom-shim@1.2.1": {}
+
+  "@lit/reactive-element@2.0.4":
+    dependencies:
+      "@lit-labs/ssr-dom-shim": 1.2.1
 
   "@mapbox/node-pre-gyp@2.0.0-rc.0":
     dependencies:
@@ -9135,6 +9209,8 @@ snapshots:
     dependencies:
       "@types/node": 22.7.5
 
+  "@types/trusted-types@2.0.7": {}
+
   "@types/unist@2.0.11": {}
 
   "@types/unist@3.0.3": {}
@@ -9571,9 +9647,9 @@ snapshots:
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.1.1
-      zod: 3.23.8
-      zod-to-json-schema: 3.24.1(zod@3.23.8)
-      zod-to-ts: 1.2.0(typescript@5.7.2)(zod@3.23.8)
+      zod: 3.24.1
+      zod-to-json-schema: 3.24.1(zod@3.24.1)
+      zod-to-ts: 1.2.0(typescript@5.7.2)(zod@3.24.1)
     optionalDependencies:
       sharp: 0.33.5
     transitivePeerDependencies:
@@ -10460,6 +10536,10 @@ snapshots:
 
   fast-uri@3.0.2: {}
 
+  fast-xml-parser@4.5.1:
+    dependencies:
+      strnum: 1.0.5
+
   fastq@1.17.1:
     dependencies:
       reusify: 1.0.4
@@ -10588,6 +10668,10 @@ snapshots:
       call-bind: 1.0.7
       es-errors: 1.3.0
       get-intrinsic: 1.2.4
+
+  giscus@1.6.0:
+    dependencies:
+      lit: 3.2.1
 
   git-hooks-list@3.1.0: {}
 
@@ -11174,6 +11258,22 @@ snapshots:
       untun: 0.1.3
       uqr: 0.1.2
 
+  lit-element@4.1.1:
+    dependencies:
+      "@lit-labs/ssr-dom-shim": 1.2.1
+      "@lit/reactive-element": 2.0.4
+      lit-html: 3.2.1
+
+  lit-html@3.2.1:
+    dependencies:
+      "@types/trusted-types": 2.0.7
+
+  lit@3.2.1:
+    dependencies:
+      "@lit/reactive-element": 2.0.4
+      lit-element: 4.1.1
+      lit-html: 3.2.1
+
   load-yaml-file@0.2.0:
     dependencies:
       graceful-fs: 4.2.11
@@ -11735,7 +11835,7 @@ snapshots:
       workerd: 1.20241218.0
       ws: 8.18.0
       youch: 3.3.4
-      zod: 3.23.8
+      zod: 3.24.1
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -12791,6 +12891,8 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
+  strnum@1.0.5: {}
+
   style-to-object@0.4.4:
     dependencies:
       inline-style-parser: 0.1.1
@@ -13525,15 +13627,15 @@ snapshots:
       mustache: 4.2.0
       stacktracey: 2.1.8
 
-  zod-to-json-schema@3.24.1(zod@3.23.8):
+  zod-to-json-schema@3.24.1(zod@3.24.1):
     dependencies:
-      zod: 3.23.8
+      zod: 3.24.1
 
-  zod-to-ts@1.2.0(typescript@5.7.2)(zod@3.23.8):
+  zod-to-ts@1.2.0(typescript@5.7.2)(zod@3.24.1):
     dependencies:
       typescript: 5.7.2
-      zod: 3.23.8
+      zod: 3.24.1
 
-  zod@3.23.8: {}
+  zod@3.24.1: {}
 
   zwitch@2.0.4: {}

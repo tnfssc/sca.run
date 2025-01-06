@@ -19,11 +19,13 @@
     "@astrojs/cloudflare": "^12.1.0",
     "@astrojs/mdx": "4.0.3",
     "@astrojs/react": "^4.1.2",
+    "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
     "@astrojs/vercel": "^8.0.1",
     "@eslint/compat": "^1.2.4",
     "@eslint/js": "^9.17.0",
+    "@giscus/react": "^3.1.0",
     "@iconify/json": "^2.2.287",
     "@nanostores/react": "^0.8.4",
     "@paralleldrive/cuid2": "^2.2.2",
@@ -84,7 +86,8 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "unplugin-icons": "^0.22.0",
-    "wrangler": "^3.99.0"
+    "wrangler": "^3.99.0",
+    "zod": "^3.24.1"
   },
   "packageManager": "pnpm@9.15.1",
   "engines": {

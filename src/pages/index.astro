@@ -1,49 +1,41 @@
 ---
-import { remarked } from "@/lib/remark";
 import Base from "@/layouts/Base.astro";
-import HugeiconsAdventure from "~icons/hugeicons/adventure";
-import FloatingActionButton from "@/components/floating-action-button.astro";
+import { getCollection } from "astro:content";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
-export const prerender = true;
-
-const content = await fetch(new URL("https://raw.githubusercontent.com/tnfssc/tnfssc/refs/heads/main/RESUME.md"))
-  .then((r) => {
-    if (r.ok) return r;
-    else throw new Error("Failed to fetch data");
-  })
-  .then((r) => r.text())
-  .catch((e) => {
-    console.error(e);
-    return "## Cannot access GitHub to fetch the latest resume\n\nOpen it directly [https://github.com/tnfssc/tnfssc/blob/main/RESUME.md](https://github.com/tnfssc/tnfssc/blob/main/RESUME.md)";
-  })
-  .then(remarked)
-  .then(String);
+const latestPosts = await getCollection("blog").then((allPosts) =>
+  allPosts
+    .filter((post) => post.data.public)
+    .toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 3),
+);
 ---
 
-<Base title="sharath's resume">
-  <main class="m-4 flex flex-col items-center">
-    <FloatingActionButton transition:persist="chronicle-switch">
+<Base title="sca.run homepage">
+  <main class="flex min-h-[calc(100vh-88px)] flex-col items-center justify-center p-4">
+    <div class="flex flex-col items-center justify-center gap-8">
+      <a href="/blog" class="text-6xl font-bold hover:underline">Blog &RightArrow;</a>
+      <div class="flex max-w-48 flex-col gap-1">
+        <em class="mb-1">Recent posts:</em>
+        {
+          latestPosts.map((p) => (
+            <a href={`/blog/${p.id}`} class="truncate hover:underline">
+              {p.data.title}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <span class="mt-32">
+      This site is run by <a href="/resume" class="hover:underline">Sharath</a>.
       <a
-        href="/chronicle"
-        class="group flex size-full items-center justify-center rounded-full text-secondary-foreground hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="//github.com/tnfssc/sca.run"
+        class="mt-2 flex items-center gap-2 hover:underline"
       >
-        <HugeiconsAdventure
-          class="size-8 transition-transform group-hover:-rotate-12 group-hover:scale-110 group-active:rotate-12"
-        />
+        Source code available here <GitHubLogoIcon className="inline-block size-4" />
       </a>
-    </FloatingActionButton>
-    <article
-      set:html={content}
-      class:list={[
-        "prose dark:prose-invert mx-auto max-w-[min(calc(100vw-32px),72ch)]",
-        "prose-a:no-underline hover:prose-a:underline prose-a:break-all",
-        "prose-img:rounded-xl",
-        "prose-pre:mt-0 prose-pre:rounded-t-none",
-        "prose-code:whitespace-pre prose-code:rounded prose-code:border-[#1e1e1e] prose-code:bg-[#1e1e1e] prose-code:p-0.5 prose-code:text-white prose-code:before:hidden prose-code:after:hidden",
-        "defaults-for-unplugin-icons hide-quote-marks-inside-blockquote",
-        "prose-img:my-1 prose-img:shadow-md prose-img:shadow-foreground/20 prose-a:inline-block prose-img:inline prose-hr:my-2 [&_summary]:cursor-pointer",
-        "hover:prose-img:outline prose-img:outline-gray-500",
-      ]}
-    />
+    </span>
   </main>
 </Base>
