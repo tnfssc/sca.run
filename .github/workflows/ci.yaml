@@ -36,6 +36,8 @@ jobs:
       - if: ${{ steps.cache-asdf.outputs.cache-hit != 'true' }}
         name: Setup pnpm
         run: |
+          npm i -g corepack
+          asdf reshim
           corepack enable
           asdf reshim
 
